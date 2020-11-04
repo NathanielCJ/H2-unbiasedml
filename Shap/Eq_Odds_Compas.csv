@@ -1,0 +1,39 @@
+﻿Table 1,,,,
+Equalized Odds,,,,
+,,,,
+,Original group 0 model,Randomized Equalized odds group 0 model,SHAP Equalized odds group 0 model:,Delta (SHAP - Randomized)
+Accuracy,0.668,0.629,0.66,0.031
+False Positive Cost,0.492,0.465,0.48,0.015
+False Negative Cost,0.358,0.415,0.369,-0.046
+Base Rate,0.582,0.582,0.582,0
+Average Score,0.579,0.535,0.568,0.033
+,,,,
+,Original group 1 model,Equalized odds group 1 model,SHAP Equalized odds group 1 model,Delta (SHAP - Randomized)
+Accuracy,0.68,0.612,0.666,0.054
+False Positive Cost,0.36,0.462,0.378,-0.084
+False Negative Cost,0.459,0.419,0.442,0.023
+Base Rate,0.448,0.448,0.448,0
+Average Score,0.441,0.515,0.459,-0.056
+,,,,
+FP Cost difference,0.132,0.003,0.102,0.099
+FN Cost difference,-0.101,-0.004,-0.073,-0.069
+,,,,
+Table 2,,,,
+Calibrated Equalized Odds,,,,
+,,,,
+,Original group 0 model,Randomized Equalized odds group 0 model,SHAP Equalized odds group 0 model:,Delta (SHAP - Randomized)
+Accuracy,0.668,0.668,0.668,0
+False Positive Cost,0.492,0.492,0.492,0
+False Negative Cost,0.358,0.358,0.358,0
+Base Rate,0.582,0.582,0.582,0
+Average Score,0.579,0.579,0.579,0
+,,,,
+,Original group 1 model,Equalized odds group 1 model,SHAP Equalized odds group 1 model,Delta (SHAP - Randomized)
+Accuracy,0.68,0.665,0.68,0.015
+False Positive Cost,0.36,0.371,0.435,0.064
+False Negative Cost,0.459,0.469,0.449,-0.02
+Base Rate,0.448,0.448,0.448,0
+Average Score,0.441,0.443,0.487,0.044
+,,,,
+FP Cost difference,0.132,0.121,0.057,
+FN Cost difference,-0.101,-0.111,-0.091,
