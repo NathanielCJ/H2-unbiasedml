@@ -5,6 +5,7 @@ def drawCSVBokeh():
   from bokeh.models import LinearInterpolator, Span
   from bokeh.io import output_notebook
   from collections import Counter
+  output_notebook()
   shap_df = pd.read_csv("shap_df.csv")
   random_shap_df = pd.read_csv("random_shap_df.csv")
   size_mapper=LinearInterpolator(
