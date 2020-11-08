@@ -1,0 +1,34 @@
+{% extends 'base.html'%}
+{% block content%}
+<body id='remove'>
+    <!--<nav class="navbar navbar-inverse navbar-expand-lg" role="navigation">
+       <a class="navbar-brand" href="#">H2 Unbiased Machine Learning</a>
+    </nav>-->
+<div class="container" style="padding-top: 1%">
+    <h2>Burden Demo</h2>
+    <div class="row">
+    </div>
+    <p>Burden is the average of the distance of individuals from their counterfactual. Counterfactuals are generated using a genetic algorithm. The high level idea is that these counterfactuals will lie close to the class boundary and allow us to approximate how far from the other class an individual is</p>
+    <div class='row'>
+	<img src={{url_for('static', filename='img/burden_1.png')}} class="col-md-6">
+	<img src={{url_for('static', filename='img/burden_2.png')}} class="col-md-6">
+    </div>
+	<p>Using these distances we can create a derived predictor that flips individuals that are close to the class boundary. These are people that were classified one way or another just barely thus making them good candidates for flipping to the other class.</p>
+    <div class='row'>
+    <img src={{url_for('static', filename='img/burden_3.png')}} class="col-md-6">
+	<img src={{url_for('static', filename='img/burden_4.png')}} class="col-md-6">
+    </div>
+	<p>We performed a few experiments to see how effectively we could leverage Burden for the debiasing process. First we ran the code with randomly selected individuals being flipped to the opposite class. (this is for comparison). Then we ran an experiment where individuals were flipped based on their counterfactual distance. Finally we ran an experiment where individuals were flipped based on their burden but individuals in the privileged class were moved positive to negative and individuals in the unprivileged class were moved negative to positive. As you can see, debiasing can have an effect on the model's accuracy. Burden model's accuracy was reduced less than random model's. The partial burden model actually improved on the accuracy.The Partial burden algorithm seems to go against the fairness accuracy trade off. this is probably due to the fact that it allows for a more relaxed set of constraints compared to the full Burden Model
+</p>
+    <div class='row'>
+    <img src={{url_for('static', filename='img/burden_5.png')}} class="col-md-6">
+	<img src={{url_for('static', filename='img/burden_6.png')}} class="col-md-6">
+	</div>
+	<p></p>
+
+
+	
+</div>
+</body>
+{% endblock %}
+

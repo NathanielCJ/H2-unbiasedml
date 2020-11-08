@@ -1,0 +1,63 @@
+<!doctype html>
+<html style='height: 100%; margin:0; padding:0'>
+    <head>
+    <script>
+        function showload(){
+            document.getElementById('remove').style.display='none';
+            document.getElementById('spinner').style.display='block';
+        }
+    </script>
+    <style>
+    .loader {
+        #border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-right: 16px solid green;
+        border-bottom: 16px solid pink;
+        border-left: 16px solid red;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+        display: none;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 20%;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    </style>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.3.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.3.min.js" crossorigin="anonymous"></script>
+        <meta charset="utf-8"/>
+	<link rel="stylesheet" href="{{url_for('static', filename='css/info.css')}}">
+    <link href="http://cdn.pydata.org/bokeh/release/bokeh-2.2.3.min.css" rel="stylesheet">
+    <link href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-2.2.3.min.css" rel="stylesheet">
+        <title>{% block title %} H2 Unbiased ML {% endblock %}</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    </head>
+    <body style="height:100%; margin:0; padding:0">
+        <nav class="navbar navbar-expand-lg" role="navigation" style='margin-bottom:0'>
+	  <a class="navbar-brand" onclick="showload()" href="{{url_for('index')}}">H2 Unbiased ML</a>
+	  <!--<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-01"></button>-->
+          <div class="collapse navbar-collapse" id="navbar-collapse-01">
+            <ul class="nav navbar-nav mr-auto">
+	      <li class='nav-item'><a onclick="showload()" class='nav-link' href="{{url_for('info')}}">Background</a></li>
+	      <li class='nav-item'><a onclick="showload()" class='nav-link' href="{{url_for('genalgo')}}">Genetic Algorithm</a></li>
+	      <li class='nav-item'><a onclick="showload()" class='nav-link' href="{{url_for('shapdem')}}">SHAP</a></li>
+	      <li class='nav-item'><a onclick="showload()" class='nav-link' href="{{url_for('burdendemo')}}">Burden</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </nav>
+	<div class='root-container' style='height: 100%, margin-bottom:0'>{% block content %}<div id='remove' style='margin-bottom:0;text-align:center; padding-top:15%'><h2>Welcome to H2's Unbiased Machine Learning</h2><br/><p>EE 464 Design Project</p><br/><h3>Click any of the links in the navigation bar to get started.</h3></div><div class='loader' id='spinner'></div>{% endblock %}</div>
+    </body>
+    <footer></footer>
+</html>

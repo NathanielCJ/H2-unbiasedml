@@ -1,0 +1,15 @@
+{% extends 'info.html'%}
+
+{% block info %}
+<h2>Burden-based</h2>
+<div class="line"></div>
+<p>Burden based recourse is a model-agnostic algorithm that uses burden to detect bias and recourse to mitigate the bias in existing models. The algorithm creates data points called counterfactuals that are used to both generate NCERScore to compare robustness of models and burden to evaluate fairness of the model towards an individual or a group of individuals</p>
+
+<p>Burden based recourse uses a custom genetic algorithm to create counterfactuals, which are sets of data points similar to the input, but result in a different outcome from the model than the input. The custom genetic algorithm is an optimization problem that iterates over several generations of simulated counterfactual succession to yield counterfactuals most similar to the input. Within each generation, a set of possible counterfactuals are randomly generated that undergo a process of arbitrarily changing a subset of features for each counterfactual as well as interchanging feature values between counterfactuals. The counterfactuals most similar to the input are chosen to become successors of the next generation. Therefore by the time the genetic algorithm completes, the counterfactuals that remain should have statistically converged in similarity to the input. </p>
+
+<p>The similarity of counterfactuals to an input are quantified by numerical values called fitness scores. The higher the fitness score for a counterfactual, the more similar the counterfactual is to the input, and the mathematical inverse of the fitness score called distance bounds the numerical representation for the minimum that an input to a model needs to be changed in order to yield a more different decision from the model in question. The fitness scores and their mathematical inverse transforms are used by NCERScore to determine the robustness of a model and burden to evaluate fairness of the model towards an individual or a group of individuals. </p>
+
+<p>Models are said to be robust if similar inputs are less susceptible to diverging decisions. Since distance defines the numerical representation for the minimum that an input to a model needs to be changed in order to yield a different decision, a model whose generated counterfactuals have large distances will require larger changes in the input to yield diverging decisions as compared to a model whose generated counterfactuals whose distances are small. NCERScore calculates a value proportional to the average of the generated counterfactuals’ distances, therefore quantifying the robustness of a model that larger NCERScores denote greater model robustness and smaller NCERScores denote lesser model robustness.</p>
+
+<p>Distances are also used to calculate the burden of a group. Burden is the weighted average of the distances over a group of individuals. Burden can be used to determine that relative to a group B, if group A had a larger burden score then the individuals in group A may require larger change to reach a favorable decision by a model than group B, thus showing bias towards group B over group A.</p>
+{% endblock %}

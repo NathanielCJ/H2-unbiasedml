@@ -1,0 +1,2 @@
+
+  return group_0_test_model.fpr(), group_0_test_model.tpr(), group_1_test_model.fpr(), group_1_test_model.tpr(), eq_odd_group_0_test_model.fpr(), eq_odds_group_0_test_model.tpr(), eq_odds_group_1_test_model.fpr(), eq_odds_group_1_test_model.tpr()

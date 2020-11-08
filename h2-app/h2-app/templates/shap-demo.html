@@ -1,0 +1,520 @@
+{% extends 'base.html'%}
+<style id="Eq_Odds_Compas_31842_Styles">
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.xl1531842
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6531842
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl6631842
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+-->
+</style>
+<style id="Eq_Odds_Compas_1652_Styles">
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.xl151652
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl651652
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl661652
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+-->
+</style>
+
+{% block content%}
+<body id='remove'>
+    <!--<nav class="navbar navbar-inverse navbar-expand-lg" role="navigation">
+       <a class="navbar-brand" href="#">H2 Unbiased Machine Learning</a>
+    </nav>-->
+<div class="container" style="padding-top: 1%">
+    <h1>SHAP Demo Page</h1>
+    <div class="row">
+    </div>
+    <h2>SHAP</h2>
+    <p>SHAP (SHapley Additive exPlanations) values are used for explaining the output of a model. They assign a score to each feature indicating the degree to which it contributed towards a prediction. Negative shap scores lead to a decrease in the prediction, while positive shap scores lead to an increase. .</p>
+    <div class='row'>
+	<img src={{url_for('static', filename='img/shap_compas_pmf_1.png')}} class="col-md-6">
+	<img src={{url_for('static', filename='img/shap_compas_pmf_2.png')}} class="col-md-6">
+	</div>
+	
+	<h2>Demographic Parity</h2>
+    <p>Let’s now introduce some discrimination criterion that are used to evaluated fairness.</p>
+	<p>The most basic one is demographic parity. It means that the model score should be independent of the protected attribute which in this case is race. This would imply that the shap score for race should be zero.  
+</p>
+	<img src={{url_for('static', filename='img/eqn1_shap.gif')}} class="col-md-6 offset-3">
+	<img src={{url_for('static', filename='img/shap_compas_pmf_3.png')}} class="col-md-6 offset-3">
+	<h2>Equalized Odds</h2>
+	<p>Another discrimination criterion is equalized odds, which means that the score should be independent of the protected attributed when conditioned on the target result. </p>
+	
+	<img src={{url_for('static', filename='img/eqn2_shap.gif')}} class="col-md-6 offset-3">
+	<br/>
+	<img src={{url_for('static', filename='img/eqn3_shap.gif')}} class="col-md-6 offset-3">	
+	<img src={{url_for('static', filename='img/shap_compas_pmf_5.png')}} class="col-md-6 offset-3">
+	{%block eq_odds%}{%endblock%}
+	{%block ceq_odds%} {%endblock%}
+	<p></p>
+<style id="Eq_Odds_Compas_31842_Styles">
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.xl1531842
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6531842
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl6631842
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+-->
+</style>
+
+<div id="Eq_Odds_Compas_31842" align=center x:publishsource="Excel">
+
+<table border=1 cellpadding=0 cellspacing=0 width=825 style='border-collapse:
+ collapse;table-layout:fixed;width:618pt'>
+ <col width=127 style='mso-width-source:userset;mso-width-alt:4522;width:95pt'>
+ <col width=145 style='mso-width-source:userset;mso-width-alt:5148;width:109pt'>
+ <col width=198 style='mso-width-source:userset;mso-width-alt:7025;width:148pt'>
+ <col width=189 style='mso-width-source:userset;mso-width-alt:6712;width:142pt'>
+ <col width=166 style='mso-width-source:userset;mso-width-alt:5888;width:124pt'>
+ <tr height=38 style='height:28.8pt'>
+  <td height=38 class=xl6531842 width=127 style='height:28.8pt;width:95pt'></td>
+  <td class=xl6631842 width=145 style='width:109pt'>Original group 0 model</td>
+  <td class=xl6631842 width=198 style='width:148pt'>Randomized Equalized odds
+  group 0 model</td>
+  <td class=xl6631842 width=189 style='width:142pt'>SHAP Equalized odds group 0
+  model</td>
+  <td class=xl6631842 width=166 style='width:124pt'>Delta (SHAP - Randomized)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl6531842 width=127 style='height:14.4pt;width:95pt'>Accuracy</td>
+  <td class=xl6631842 width=145 style='width:109pt'>0.668</td>
+  <td class=xl6631842 width=198 style='width:148pt'>0.629</td>
+  <td class=xl6631842 width=189 style='width:142pt'>0.66</td>
+  <td class=xl6631842 width=166 style='width:124pt'>0.031</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl6531842 width=127 style='height:14.4pt;width:95pt'>False
+  Positive Cost</td>
+  <td class=xl6631842 width=145 style='width:109pt'>0.492</td>
+  <td class=xl6631842 width=198 style='width:148pt'>0.465</td>
+  <td class=xl6631842 width=189 style='width:142pt'>0.48</td>
+  <td class=xl6631842 width=166 style='width:124pt'>0.015</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl6531842 width=127 style='height:14.4pt;width:95pt'>False
+  Negative Cost</td>
+  <td class=xl6631842 width=145 style='width:109pt'>0.358</td>
+  <td class=xl6631842 width=198 style='width:148pt'>0.415</td>
+  <td class=xl6631842 width=189 style='width:142pt'>0.369</td>
+  <td class=xl6631842 width=166 style='width:124pt'>-0.046</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl6531842 width=127 style='height:14.4pt;width:95pt'>Base
+  Rate</td>
+  <td class=xl6631842 width=145 style='width:109pt'>0.582</td>
+  <td class=xl6631842 width=198 style='width:148pt'>0.582</td>
+  <td class=xl6631842 width=189 style='width:142pt'>0.582</td>
+  <td class=xl6631842 width=166 style='width:124pt'>0</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl6531842 width=127 style='height:14.4pt;width:95pt'>Average
+  Score</td>
+  <td class=xl6631842 width=145 style='width:109pt'>0.579</td>
+  <td class=xl6631842 width=198 style='width:148pt'>0.535</td>
+  <td class=xl6631842 width=189 style='width:142pt'>0.568</td>
+  <td class=xl6631842 width=166 style='width:124pt'>0.033</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl6531842 width=127 style='height:14.4pt;width:95pt'></td>
+  <td class=xl6631842 width=145 style='width:109pt'></td>
+  <td class=xl6631842 width=198 style='width:148pt'></td>
+  <td class=xl6631842 width=189 style='width:142pt'></td>
+  <td class=xl6631842 width=166 style='width:124pt'></td>
+ </tr>
+ <tr height=38 style='height:28.8pt'>
+  <td height=38 class=xl6531842 width=127 style='height:28.8pt;width:95pt'></td>
+  <td class=xl6631842 width=145 style='width:109pt'>Original group 1 model</td>
+  <td class=xl6631842 width=198 style='width:148pt'>Randomzied Equalized odds
+  group 1 model</td>
+  <td class=xl6631842 width=189 style='width:142pt'>SHAP Equalized odds group 1
+  model</td>
+  <td class=xl6631842 width=166 style='width:124pt'>Delta (SHAP - Randomized)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl6531842 width=127 style='height:14.4pt;width:95pt'>Accuracy</td>
+  <td class=xl6631842 width=145 style='width:109pt'>0.68</td>
+  <td class=xl6631842 width=198 style='width:148pt'>0.612</td>
+  <td class=xl6631842 width=189 style='width:142pt'>0.666</td>
+  <td class=xl6631842 width=166 style='width:124pt'>0.054</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl6531842 width=127 style='height:14.4pt;width:95pt'>False
+  Positive Cost</td>
+  <td class=xl6631842 width=145 style='width:109pt'>0.36</td>
+  <td class=xl6631842 width=198 style='width:148pt'>0.462</td>
+  <td class=xl6631842 width=189 style='width:142pt'>0.378</td>
+  <td class=xl6631842 width=166 style='width:124pt'>-0.084</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl6531842 width=127 style='height:14.4pt;width:95pt'>False
+  Negative Cost</td>
+  <td class=xl6631842 width=145 style='width:109pt'>0.459</td>
+  <td class=xl6631842 width=198 style='width:148pt'>0.419</td>
+  <td class=xl6631842 width=189 style='width:142pt'>0.442</td>
+  <td class=xl6631842 width=166 style='width:124pt'>0.023</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl6531842 width=127 style='height:14.4pt;width:95pt'>Base
+  Rate</td>
+  <td class=xl6631842 width=145 style='width:109pt'>0.448</td>
+  <td class=xl6631842 width=198 style='width:148pt'>0.448</td>
+  <td class=xl6631842 width=189 style='width:142pt'>0.448</td>
+  <td class=xl6631842 width=166 style='width:124pt'>0</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl6531842 width=127 style='height:14.4pt;width:95pt'>Average
+  Score</td>
+  <td class=xl6631842 width=145 style='width:109pt'>0.441</td>
+  <td class=xl6631842 width=198 style='width:148pt'>0.515</td>
+  <td class=xl6631842 width=189 style='width:142pt'>0.459</td>
+  <td class=xl6631842 width=166 style='width:124pt'>-0.056</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl6531842 width=127 style='height:14.4pt;width:95pt'></td>
+  <td class=xl6631842 width=145 style='width:109pt'></td>
+  <td class=xl6631842 width=198 style='width:148pt'></td>
+  <td class=xl6631842 width=189 style='width:142pt'></td>
+  <td class=xl6631842 width=166 style='width:124pt'></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl6531842 width=127 style='height:14.4pt;width:95pt'>FP
+  Cost difference</td>
+  <td class=xl6631842 width=145 style='width:109pt'>0.132</td>
+  <td class=xl6631842 width=198 style='width:148pt'>0.003</td>
+  <td class=xl6631842 width=189 style='width:142pt'>0.102</td>
+  <td class=xl6631842 width=166 style='width:124pt'></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl6531842 width=127 style='height:14.4pt;width:95pt'>FN
+  Cost difference</td>
+  <td class=xl6631842 width=145 style='width:109pt'>-0.101</td>
+  <td class=xl6631842 width=198 style='width:148pt'>-0.004</td>
+  <td class=xl6631842 width=189 style='width:142pt'>-0.073</td>
+  <td class=xl6631842 width=166 style='width:124pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=127 style='width:95pt'></td>
+  <td width=145 style='width:109pt'></td>
+  <td width=198 style='width:148pt'></td>
+  <td width=189 style='width:142pt'></td>
+  <td width=166 style='width:124pt'></td>
+ </tr>
+ <![endif]>
+</table>
+</div>
+	
+	<h2>Calibrated Equalized Odds</h2>
+	<p>There is also another method which achieves calibrated equalized odds using derived predictors. However, instead of flipping predictions it changes them to the mean of all the predictions. The details are somewhat involved, but similar to the original method, the instances to change are randomly determined. SHAP is used to select the most disadvantaged and the most advantaged people and change their predictions, again resulting in similar group fairness but better individual fairness. Accuracy drops, but the derived predictor is more fair. This is expected due to the fairness-accuracy tradeoff.</p>
+	<div id="Eq_Odds_Compas_1652" align=center x:publishsource="Excel">
+	<table border=1 cellpadding=0 cellspacing=0 width=825 style='border-collapse:
+ collapse;table-layout:fixed;width:618pt'>
+ <col width=127 style='mso-width-source:userset;mso-width-alt:4522;width:95pt'>
+ <col width=145 style='mso-width-source:userset;mso-width-alt:5148;width:109pt'>
+ <col width=198 style='mso-width-source:userset;mso-width-alt:7025;width:148pt'>
+ <col width=189 style='mso-width-source:userset;mso-width-alt:6712;width:142pt'>
+ <col width=166 style='mso-width-source:userset;mso-width-alt:5888;width:124pt'>
+ <tr height=38 style='height:28.8pt'>
+  <td height=38 class=xl651652 width=127 style='height:28.8pt;width:95pt'></td>
+  <td class=xl661652 width=145 style='width:109pt'>Original group 0 model</td>
+  <td class=xl661652 width=198 style='width:148pt'>Randomized Equalized odds
+  group 0 model</td>
+  <td class=xl661652 width=189 style='width:142pt'>SHAP Equalized odds group 0
+  model:</td>
+  <td class=xl661652 width=166 style='width:124pt'>Delta (SHAP - Randomized)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl651652 width=127 style='height:14.4pt;width:95pt'>Accuracy</td>
+  <td class=xl651652 align=right width=145 style='width:109pt'>0.668</td>
+  <td class=xl651652 align=right width=198 style='width:148pt'>0.668</td>
+  <td class=xl651652 align=right width=189 style='width:142pt'>0.668</td>
+  <td class=xl651652 align=right width=166 style='width:124pt'>0</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl651652 width=127 style='height:14.4pt;width:95pt'>False
+  Positive Cost</td>
+  <td class=xl651652 align=right width=145 style='width:109pt'>0.492</td>
+  <td class=xl651652 align=right width=198 style='width:148pt'>0.492</td>
+  <td class=xl651652 align=right width=189 style='width:142pt'>0.492</td>
+  <td class=xl651652 align=right width=166 style='width:124pt'>0</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl651652 width=127 style='height:14.4pt;width:95pt'>False
+  Negative Cost</td>
+  <td class=xl651652 align=right width=145 style='width:109pt'>0.358</td>
+  <td class=xl651652 align=right width=198 style='width:148pt'>0.358</td>
+  <td class=xl651652 align=right width=189 style='width:142pt'>0.358</td>
+  <td class=xl651652 align=right width=166 style='width:124pt'>0</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl651652 width=127 style='height:14.4pt;width:95pt'>Base
+  Rate</td>
+  <td class=xl651652 align=right width=145 style='width:109pt'>0.582</td>
+  <td class=xl651652 align=right width=198 style='width:148pt'>0.582</td>
+  <td class=xl651652 align=right width=189 style='width:142pt'>0.582</td>
+  <td class=xl651652 align=right width=166 style='width:124pt'>0</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl651652 width=127 style='height:14.4pt;width:95pt'>Average
+  Score</td>
+  <td class=xl651652 align=right width=145 style='width:109pt'>0.579</td>
+  <td class=xl651652 align=right width=198 style='width:148pt'>0.579</td>
+  <td class=xl651652 align=right width=189 style='width:142pt'>0.579</td>
+  <td class=xl651652 align=right width=166 style='width:124pt'>0</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl651652 width=127 style='height:14.4pt;width:95pt'></td>
+  <td class=xl651652 width=145 style='width:109pt'></td>
+  <td class=xl651652 width=198 style='width:148pt'></td>
+  <td class=xl651652 width=189 style='width:142pt'></td>
+  <td class=xl651652 width=166 style='width:124pt'></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl651652 width=127 style='height:14.4pt;width:95pt'></td>
+  <td class=xl661652 width=145 style='width:109pt'>Original group 1 model</td>
+  <td class=xl661652 width=198 style='width:148pt'>Equalized odds group 1 model</td>
+  <td class=xl661652 width=189 style='width:142pt'>SHAP Equalized odds group 1
+  model</td>
+  <td class=xl661652 width=166 style='width:124pt'>Delta (SHAP - Randomized)</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl651652 width=127 style='height:14.4pt;width:95pt'>Accuracy</td>
+  <td class=xl651652 align=right width=145 style='width:109pt'>0.68</td>
+  <td class=xl651652 align=right width=198 style='width:148pt'>0.665</td>
+  <td class=xl651652 align=right width=189 style='width:142pt'>0.68</td>
+  <td class=xl651652 align=right width=166 style='width:124pt'>0.015</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl651652 width=127 style='height:14.4pt;width:95pt'>False
+  Positive Cost</td>
+  <td class=xl651652 align=right width=145 style='width:109pt'>0.36</td>
+  <td class=xl651652 align=right width=198 style='width:148pt'>0.371</td>
+  <td class=xl651652 align=right width=189 style='width:142pt'>0.435</td>
+  <td class=xl651652 align=right width=166 style='width:124pt'>0.064</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl651652 width=127 style='height:14.4pt;width:95pt'>False
+  Negative Cost</td>
+  <td class=xl651652 align=right width=145 style='width:109pt'>0.459</td>
+  <td class=xl651652 align=right width=198 style='width:148pt'>0.469</td>
+  <td class=xl651652 align=right width=189 style='width:142pt'>0.449</td>
+  <td class=xl651652 align=right width=166 style='width:124pt'>-0.02</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl651652 width=127 style='height:14.4pt;width:95pt'>Base
+  Rate</td>
+  <td class=xl651652 align=right width=145 style='width:109pt'>0.448</td>
+  <td class=xl651652 align=right width=198 style='width:148pt'>0.448</td>
+  <td class=xl651652 align=right width=189 style='width:142pt'>0.448</td>
+  <td class=xl651652 align=right width=166 style='width:124pt'>0</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl651652 width=127 style='height:14.4pt;width:95pt'>Average
+  Score</td>
+  <td class=xl651652 align=right width=145 style='width:109pt'>0.441</td>
+  <td class=xl651652 align=right width=198 style='width:148pt'>0.443</td>
+  <td class=xl651652 align=right width=189 style='width:142pt'>0.487</td>
+  <td class=xl651652 align=right width=166 style='width:124pt'>0.044</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl651652 width=127 style='height:14.4pt;width:95pt'></td>
+  <td class=xl651652 width=145 style='width:109pt'></td>
+  <td class=xl651652 width=198 style='width:148pt'></td>
+  <td class=xl651652 width=189 style='width:142pt'></td>
+  <td class=xl651652 width=166 style='width:124pt'></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl651652 width=127 style='height:14.4pt;width:95pt'>FP
+  Cost difference</td>
+  <td class=xl651652 align=right width=145 style='width:109pt'>0.132</td>
+  <td class=xl651652 align=right width=198 style='width:148pt'>0.121</td>
+  <td class=xl651652 align=right width=189 style='width:142pt'>0.057</td>
+  <td class=xl651652 width=166 style='width:124pt'></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl651652 width=127 style='height:14.4pt;width:95pt'>FN
+  Cost difference</td>
+  <td class=xl651652 align=right width=145 style='width:109pt'>-0.101</td>
+  <td class=xl651652 align=right width=198 style='width:148pt'>-0.111</td>
+  <td class=xl651652 align=right width=189 style='width:142pt'>-0.091</td>
+  <td class=xl651652 width=166 style='width:124pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=127 style='width:95pt'></td>
+  <td width=145 style='width:109pt'></td>
+  <td width=198 style='width:148pt'></td>
+  <td width=189 style='width:142pt'></td>
+  <td width=166 style='width:124pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+	
+	
+</div>
+
+<div class='row'>
+  <div class='col-md-6 offset-5'>{%block plot%} {% endblock %}</div>
+</div>
+</body>
+
+{% endblock %}
+

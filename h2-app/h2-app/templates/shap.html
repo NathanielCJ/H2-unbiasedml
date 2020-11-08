@@ -1,0 +1,9 @@
+{% extends 'info.html'%}
+
+{% block info %}
+<h2>SHAP</h2>
+<div class="line"></div>
+<p>SHapley Additive exPlanations (SHAP) is an EXplainable Artificial Intelligence(XAI) framework that solely explains the decision of a model by assigning scores to how much each feature of an input to a model contributed to the model’s decision. However, SHAP values can be used to detect the bias of a model, because SHAP values can define discrimination based on popular discrimination criterion of demographic parity, equality of opportunity, and equalized odds or separation.</p>
+
+<p>The SHAP framework receives as input the model in question, input dataset, a protected attribute(an attribute such as race or skin color that should never be discriminated against), and discrimination criterion. Once the SHAP scores are computed, depending on the discrimination criterion, detected discrimination can be quantified. Demographic parity defines that “protected attribute should have neither positive nor negative contribution to result”, and therefore discrimination would be apparent when the SHAP value of a protected attribute has non-negligible magnitude as the protected attribute has clearly contributed directly to the model’s decision. Equality of Opportunity defines that “qualified individuals should have equal chances of favourable outcome” which based on the functionality of SHAP scores, requires that the distribution of SHAP scores of a protected be similar, otherwise bias is apparent. Equalized Odds or Separation uses the concept of classes (groupings of protected attributes) similarly to Equality of Opportunity as the classes should similar SHAP score distribution, otherwise discrimination is evident as certain classes are favored over other classes. </p>
+{% endblock %}
